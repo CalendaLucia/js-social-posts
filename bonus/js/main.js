@@ -103,18 +103,22 @@ function interactiveButton() {
 
     let likeBtn = document.querySelectorAll(`.like-button.js-like-button`);
     let likes = document.querySelectorAll('.js-likes-counter');
-    const changeColor =         document.querySelector('.like-button__label');
+    const changeColor = document.querySelectorAll('.like-button__label');
 
 for (let i = 0; i < posts.length; i++) {
 
-    likes[i].innerHTML = posts[i].likes;
-    likeBtn[i].addEventListener('click', () => {
-     
+    likeBtn.addEventListener('click', function (event) {
+
+        likes[i].innerHTML = posts[i].likes;
         posts[i].likes++;
         likes[i].innerHTML = posts[i].likes;
-        changeColor.style.color = '#0CD977';
         likePost.push(posts[i].id);
-    });
+        changeColor[i].classList.add('like-button--liked');
+        
+        
+    } );
+ 
+ 
 }
 
 }
